@@ -36,9 +36,9 @@ function git_indicator {
     # hearts content 
     if [[ $git_status =~ "nothing to commit" ]]; then
         echo -ne $CLEAN  # echo out something to indicate the state that you just tested for
-    elif [[ ! $git_status =~ "working directory clean" ]]; then
+    elif [[ $git_status =~ "Changes not staged" ]]; then
         echo -ne $DIRTY
-    elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    elif [[ $git_status =~ "Changes to be committed" ]]; then
 	echo -ne $COMMIT
     else
         echo -ne $CYAN
